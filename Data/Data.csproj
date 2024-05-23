@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Configurations\" />
+      <Folder Include="Migrations\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0-preview.4.24267.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Appointment.Domain\Appointment.Domain.csproj" />
+      <ProjectReference Include="..\ExamResult.Domain\ExamResult.Domain.csproj" />
+      <ProjectReference Include="..\Patient.Domain\Patient.Domain.csproj" />
+      <ProjectReference Include="..\Receptionist.Domain\Receptionist.Domain.csproj" />
+      <ProjectReference Include="..\Registration.Domain\Registration.Domain.csproj" />
+    </ItemGroup>
+
+</Project>
