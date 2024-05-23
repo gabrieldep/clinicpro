@@ -7,7 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AspNetCore.HealthChecks.Sqlite" Version="8.0.1" />
+        <PackageReference Include="Serilog.AspNetCore" Version="8.0.2-dev-00338" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CrossCutting.DependencyInjection\CrossCutting.DependencyInjection.csproj" />
     </ItemGroup>
 
 </Project>

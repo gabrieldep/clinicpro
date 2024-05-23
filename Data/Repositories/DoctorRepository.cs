@@ -1,6 +1,8 @@
+using Doctor.Domain;
+
 namespace Data.Repositories;
 
-public class DoctorRepository
+public class DoctorRepository : IDoctorRepository
 {
     
 }
