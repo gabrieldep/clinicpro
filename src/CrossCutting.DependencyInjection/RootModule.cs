@@ -9,5 +9,6 @@ public static class RootModule
     {
         services.AddDataModule();
         services.AddEntityFrameworkModule(configuration);
+        services.AddPersonModule();
     }
 }

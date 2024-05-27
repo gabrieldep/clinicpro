@@ -15,7 +15,7 @@ public class LoginController(ISender sender) : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> PostAsync([FromBody] PersonInfoRequest request, CancellationToken cancellationToken)
     {
-        var command = new PersonInfo { User = request.User, Password = request.PassWord};
+        var command = new PersonInfo { User = request.User, Password = request.Password};
         var login = await sender.Send(command, cancellationToken);
         return Ok(login);
     }
@@ -24,5 +24,5 @@ public class LoginController(ISender sender) : ControllerBase
 public record PersonInfoRequest
 {
     public string User { get; set; }
-    public string PassWord { get; set; }
+    public string Password { get; set; }
 }

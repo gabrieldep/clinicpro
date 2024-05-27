@@ -18,10 +18,12 @@
     <ItemGroup>
       <ProjectReference Include="..\Data\Data.csproj" />
       <ProjectReference Include="..\Patient.Domain\Patient.Domain.csproj" />
+      <ProjectReference Include="..\Person.Application\Person.Application.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0-preview.4.24267.1" />
+      <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0-preview.4.24266.19" />
     </ItemGroup>
 
 </Project>
