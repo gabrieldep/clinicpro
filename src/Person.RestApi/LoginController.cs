@@ -1,3 +1,4 @@
+using Core.RestApi.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ public class LoginController(ISender sender) : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [SaveChanges]
     public async Task<IActionResult> PostAsync([FromBody] PersonInfoRequest request, CancellationToken cancellationToken)
     {
         var command = new PersonInfo { User = request.User, Password = request.Password};

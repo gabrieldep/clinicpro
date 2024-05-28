@@ -30,7 +30,7 @@ builder.Services.AddSwaggerGen(c =>
         foreach (var assembly in assemblies)
         {
             if (assembly.FullName.Contains("RestApi"))
-                c.SwaggerDoc("myclasslibrary", new OpenApiInfo { Title = "MyClassLibrary API", Version = "v1" });
+                c.SwaggerDoc(assembly.FullName, new OpenApiInfo { Title = "MyClassLibrary API", Version = "v1" });
         }
     }
 );

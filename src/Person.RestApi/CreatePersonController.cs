@@ -1,3 +1,4 @@
+using Core.RestApi.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,8 @@ public class CreatePersonController(ISender sender) : ControllerBase
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]   
+    [SaveChanges]
     public async Task<IActionResult> PostAsync([FromBody] CreatePersonInfoRequest request,
         CancellationToken cancellationToken)
     {
