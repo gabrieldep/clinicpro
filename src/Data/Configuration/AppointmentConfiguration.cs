@@ -7,7 +7,7 @@ internal class AppointmentConfiguration : IEntityTypeConfiguration<Appointment.D
 {
     public void Configure(EntityTypeBuilder<Appointment.Domain.Appointment> builder)
     {
-        builder.ToTable(nameof(AppointmentConfiguration));
+        builder.ToTable(nameof(Appointment.Domain.Appointment));
 
         builder.HasKey(x => x.Id);
         
@@ -27,12 +27,12 @@ internal class AppointmentConfiguration : IEntityTypeConfiguration<Appointment.D
             .IsRequired();
         
         builder.HasOne(x => x.Patient)
-            .WithMany(p => p.Appointments)
+            .WithMany()
             .HasForeignKey(x => x.PatientId)
             .OnDelete(DeleteBehavior.Cascade);
         
         builder.HasOne(x => x.Doctor)
-            .WithMany(p => p.Appointments)
+            .WithMany()
             .HasForeignKey(x => x.DoctorId)
             .OnDelete(DeleteBehavior.Cascade);
     }

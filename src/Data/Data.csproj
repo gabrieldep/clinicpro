@@ -8,15 +8,24 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0-preview.4.24267.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0-preview.4.24267.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0-preview.4.24267.1" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Appointment.Domain\Appointment.Domain.csproj" />
+      <ProjectReference Include="..\Doctor.Domain\Doctor.Domain.csproj" />
       <ProjectReference Include="..\ExamResult.Domain\ExamResult.Domain.csproj" />
       <ProjectReference Include="..\Patient.Domain\Patient.Domain.csproj" />
       <ProjectReference Include="..\Receptionist.Domain\Receptionist.Domain.csproj" />
       <ProjectReference Include="..\Registration.Domain\Registration.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Migrations\" />
     </ItemGroup>
 
 </Project>
