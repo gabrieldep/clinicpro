@@ -65,9 +65,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamResult.Application", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamResult.RestApi", "src\ExamResult.RestApi\ExamResult.RestApi.csproj", "{DF59F029-6DEE-41EA-A886-7EAB8C16AF33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paitient.Application", "src\Paitient.Application\Paitient.Application.csproj", "{3F5DF440-E686-4D73-BB10-C4886FF042DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patient.Application", "src\Patient.Application\Patient.Application.csproj", "{3F5DF440-E686-4D73-BB10-C4886FF042DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paitient.RestApi", "src\Paitient.RestApi\Paitient.RestApi.csproj", "{EE77F66B-D1AF-477F-8B85-FE016A6EBDC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patient.RestApi", "src\Patient.RestApi\Patient.RestApi.csproj", "{EE77F66B-D1AF-477F-8B85-FE016A6EBDC0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receptionist.Application", "src\Receptionist.Application\Receptionist.Application.csproj", "{878136C4-1206-4B03-B6BD-E35B0017293F}"
 EndProject

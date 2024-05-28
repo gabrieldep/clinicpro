@@ -11,4 +11,9 @@ public class PersonRepository(DbContext db) : IPersonRepository
             .Where(p => p.UserName == user && p.Password == password);
         return await person.AnyAsync();
     }
+
+    public Task InsertAsync(Person.Domain.Person person, CancellationToken cancellationToken)
+    {
+        return db.Set<Person.Domain.Person>().AddAsync(person, cancellationToken).AsTask();
+    }
 }
