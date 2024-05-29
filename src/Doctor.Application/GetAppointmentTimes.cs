@@ -31,21 +31,23 @@ public class GetAppointmentTimesHandler(IAppointmentRepository appointments) : I
 
     private static List<AppointmentTime> GetAllAppointmentTimes(IEnumerable<Appointment.Domain.Appointment> appointmentsScheduled , DateTime start, DateTime end)
     {
-        var startWorkingHoursMorning = new DateTime(Now.Year, Now.Month, Now.Day, 8, 0, 0);
-        var endWorkingHoursMorning = new DateTime(Now.Year, Now.Month, Now.Day, 12, 0, 0);
-        var startWorkingHoursAfternoon = new DateTime(Now.Year, Now.Month, Now.Day, 13, 0, 0);
-        var endWorkingHoursAfternoon = new DateTime(Now.Year, Now.Month, Now.Day, 17, 0, 0);
+        var today = DateOnly.FromDateTime(DateTime.Now);
+        var startWorkingHoursMorning = new DateTime(today, new TimeOnly(8, 0), DateTimeKind.Local);
+        var endWorkingHoursMorning = new DateTime(today, new TimeOnly(12, 0), DateTimeKind.Local);
+        var startWorkingHoursAfternoon = new DateTime(today, new TimeOnly(13, 0), DateTimeKind.Local);
+        var endWorkingHoursAfternoon = new DateTime(today, new TimeOnly(17, 0), DateTimeKind.Local);
         
         var availableTimes = new List<AppointmentTime>();
-        
+        var appointmentsList = appointmentsScheduled.ToList();
+
         for (var currentDate = DateTime.Now; currentDate <= end; currentDate = currentDate.AddDays(1))
         {
-            var morningAppointments = appointmentsScheduled
+            var morningAppointments = appointmentsList
                 .Count(a => a.MedicalSchedule.Date == currentDate 
                             && a.MedicalSchedule >= startWorkingHoursMorning 
                             && a.MedicalSchedule < endWorkingHoursMorning);
 
-            var afternoonAppointments = appointmentsScheduled
+            var afternoonAppointments = appointmentsList
                 .Count(a => 
                     a.MedicalSchedule.Date == currentDate 
                     && a.MedicalSchedule >= startWorkingHoursAfternoon 
