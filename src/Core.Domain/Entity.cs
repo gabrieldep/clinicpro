@@ -1,6 +1,6 @@
 namespace Core.Domain;
 
-public class Entity
+public abstract class Entity
 {
     public Guid Id { get; private init; } = Guid.NewGuid();
     public DateTime CreatedAt { get; private init; } = DateTime.UtcNow;

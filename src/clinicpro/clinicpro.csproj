@@ -21,6 +21,8 @@
       <ProjectReference Include="..\Person.RestApi\Person.RestApi.csproj" />
       <ProjectReference Include="..\Doctor.RestApi\Doctor.RestApi.csproj" />
       <ProjectReference Include="..\Appointment.RestApi\Appointment.RestApi.csproj" />
+      <ProjectReference Include="..\Receptionist.RestApi\Receptionist.RestApi.csproj" />
+      <ProjectReference Include="..\Patient.RestApi\Patient.RestApi.csproj" />
     </ItemGroup>
 
 </Project>

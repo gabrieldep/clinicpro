@@ -2,8 +2,9 @@
 
 namespace Person.Domain;
 
-public class Person : Entity
+public abstract class Person : Entity
 {
+    public abstract PersonType Type { get; set; }
     public string UserName { get; set; }
     public string Password { get; set; }
     public string Name { get; set; }
