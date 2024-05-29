@@ -1,7 +1,5 @@
 using CrossCutting.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using Person.RestApi;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);

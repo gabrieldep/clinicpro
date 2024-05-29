@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Appointment.RestApi;
 
 [ApiController]
-[Route("api/schedule-appointment")]
+[Route("api/appointment/schedule-appointment")]
 public class ScheduleAppointmentController(ISender sender) : ControllerBase
 {
     [HttpPost]

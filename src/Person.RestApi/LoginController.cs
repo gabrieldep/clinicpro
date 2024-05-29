@@ -7,7 +7,7 @@ using Person.Application;
 namespace Person.RestApi;
 
 [ApiController]
-[Route("api/person")]
+[Route("api/person/login")]
 public class LoginController(ISender sender) : ControllerBase
 {
     [HttpPost]

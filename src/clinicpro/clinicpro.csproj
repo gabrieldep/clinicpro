@@ -19,6 +19,8 @@
     <ItemGroup>
       <ProjectReference Include="..\CrossCutting.DependencyInjection\CrossCutting.DependencyInjection.csproj" />
       <ProjectReference Include="..\Person.RestApi\Person.RestApi.csproj" />
+      <ProjectReference Include="..\Doctor.RestApi\Doctor.RestApi.csproj" />
+      <ProjectReference Include="..\Appointment.RestApi\Appointment.RestApi.csproj" />
     </ItemGroup>
 
 </Project>

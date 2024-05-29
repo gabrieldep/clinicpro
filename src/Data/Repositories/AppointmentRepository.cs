@@ -9,4 +9,13 @@ public class AppointmentRepository(DbContext db) : IAppointmentRepository
     {
         return db.Set<Appointment.Domain.Appointment>().AddAsync(appointment, cancellationToken).AsTask();
     }
+
+    public async Task<IQueryable<Appointment.Domain.Appointment>> GetAppointmentsFromNow(Guid doctorId, CancellationToken cancellationToken)
+    {
+        var appointments = db.Set<Appointment.Domain.Appointment>()
+            .Where(s => 
+                s.DoctorId == doctorId
+                && s.MedicalSchedule >= DateTime.Now);
+        return await Task.FromResult(appointments);
+    }
 }

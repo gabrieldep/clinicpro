@@ -6,4 +6,22 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Reference Include="Microsoft.AspNetCore.Http.Abstractions">
+        <HintPath>..\..\..\..\..\..\usr\lib\dotnet\shared\Microsoft.AspNetCore.App\8.0.5\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.AspNetCore.Mvc.Core">
+        <HintPath>..\..\..\..\..\..\usr\lib\dotnet\shared\Microsoft.AspNetCore.App\8.0.5\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core.RestApi\Core.RestApi.csproj" />
+      <ProjectReference Include="..\Doctor.Application\Doctor.Application.csproj" />
+    </ItemGroup>
+
 </Project>
