@@ -11,7 +11,7 @@ public class CreateReceptionist : IRequest<Guid>
     public DateOnly Birth { get; set; }
 }
 
-public class CreatePersonHandler(IReceptionistRepository receptionists) : IRequestHandler<CreateReceptionist, Guid>
+public class CreateReceptionistHandler(IReceptionistRepository receptionists) : IRequestHandler<CreateReceptionist, Guid>
 {
     public async Task<Guid> Handle(CreateReceptionist request, CancellationToken cancellationToken)
     {

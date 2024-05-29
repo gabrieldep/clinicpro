@@ -12,11 +12,11 @@ public class CreateDoctor : IRequest<Guid>
     public DateOnly Birth { get; set; }
 }
 
-public class CreatePersonHandler(IDoctorRepository receptionists) : IRequestHandler<CreateDoctor, Guid>
+public class CreateDoctorHandler(IDoctorRepository doctors) : IRequestHandler<CreateDoctor, Guid>
 {
     public async Task<Guid> Handle(CreateDoctor request, CancellationToken cancellationToken)
     {
-        var receptionist = new Domain.Doctor()
+        var doctor = new Domain.Doctor()
         {
             UserName = request.User,
             Password = request.Password,
@@ -24,7 +24,7 @@ public class CreatePersonHandler(IDoctorRepository receptionists) : IRequestHand
             Birth = request.Birth
         };
 
-        await receptionists.InsertAsync(receptionist, cancellationToken);
-        return receptionist.Id;
+        await doctors.InsertAsync(doctor, cancellationToken);
+        return doctor.Id;
     }
 }

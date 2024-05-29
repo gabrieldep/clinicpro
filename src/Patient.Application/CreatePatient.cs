@@ -11,7 +11,7 @@ public class CreatePatient : IRequest<Guid>
     public DateOnly Birth { get; set; }
 }
 
-public class CreatePersonHandler(IPatientRepository receptionists) : IRequestHandler<CreatePatient, Guid>
+public class CreatePatientHandler(IPatientRepository receptionists) : IRequestHandler<CreatePatient, Guid>
 {
     public async Task<Guid> Handle(CreatePatient request, CancellationToken cancellationToken)
     {

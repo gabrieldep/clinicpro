@@ -28,8 +28,8 @@ public class CreateDoctorController(ISender sender) : ControllerBase
             Name = request.Name,
             Birth = birthDate
         };
-        var patientId = await sender.Send(command, cancellationToken);
-        return Ok(patientId);
+        var doctorId = await sender.Send(command, cancellationToken);
+        return Ok(doctorId);
     }
 }
 
