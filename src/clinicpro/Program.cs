@@ -21,19 +21,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-    {
-        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Main Project API", Version = "v1" });
-
-        // Reference and scan the assemblies of class library projects
-        var assemblies= AppDomain.CurrentDomain.GetAssemblies();
-        foreach (var assembly in assemblies)
-        {
-            if (assembly.FullName.Contains("RestApi"))
-                c.SwaggerDoc(assembly.FullName, new OpenApiInfo { Title = "MyClassLibrary API", Version = "v1" });
-        }
-    }
-);
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddHealthChecks()
     .AddSqlite(builder.Configuration.GetConnectionString("Sqlite")!);
