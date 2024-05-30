@@ -1,6 +1,5 @@
 using Doctor.Domain;
 using MediatR;
-using Patient.Domain;
 
 namespace Doctor.Application;
 

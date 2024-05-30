@@ -46,23 +46,6 @@ namespace Data.Migrations
                     b.ToTable("Appointment", (string)null);
                 });
 
-            modelBuilder.Entity("Doctor.Domain.Doctor", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Doctor");
-                });
-
             modelBuilder.Entity("ExamResult.Domain.ExamResult", b =>
                 {
                     b.Property<Guid>("Id")
@@ -77,23 +60,6 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ExamResult", (string)null);
-                });
-
-            modelBuilder.Entity("Patient.Domain.Patient", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Patient");
                 });
 
             modelBuilder.Entity("Person.Domain.Person", b =>
@@ -123,6 +89,9 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Type")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -150,6 +119,20 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Registration", (string)null);
+                });
+
+            modelBuilder.Entity("Doctor.Domain.Doctor", b =>
+                {
+                    b.HasBaseType("Person.Domain.Person");
+
+                    b.HasDiscriminator().HasValue("Doctor");
+                });
+
+            modelBuilder.Entity("Patient.Domain.Patient", b =>
+                {
+                    b.HasBaseType("Person.Domain.Person");
+
+                    b.HasDiscriminator().HasValue("Patient");
                 });
 
             modelBuilder.Entity("Receptionist.Domain.Receptionist", b =>

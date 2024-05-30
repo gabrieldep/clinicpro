@@ -16,9 +16,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Appointment.Application\Appointment.Application.csproj" />
       <ProjectReference Include="..\Data\Data.csproj" />
+      <ProjectReference Include="..\Doctor.Application\Doctor.Application.csproj" />
+      <ProjectReference Include="..\Patient.Application\Patient.Application.csproj" />
       <ProjectReference Include="..\Patient.Domain\Patient.Domain.csproj" />
       <ProjectReference Include="..\Person.Application\Person.Application.csproj" />
+      <ProjectReference Include="..\Receptionist.Application\Receptionist.Application.csproj" />
     </ItemGroup>
 
     <ItemGroup>

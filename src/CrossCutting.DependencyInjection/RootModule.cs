@@ -10,5 +10,9 @@ public static class RootModule
         services.AddDataModule();
         services.AddEntityFrameworkModule(configuration);
         services.AddPersonModule();
+        services.AddDoctorModule();
+        services.AddReceptionistModule();
+        services.AddPatientModule();
+        services.AddAppointmentModule();
     }
 }
