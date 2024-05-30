@@ -14,5 +14,6 @@ public static class RootModule
         services.AddReceptionistModule();
         services.AddPatientModule();
         services.AddAppointmentModule();
+        services.AddValidatorModule();
     }
 }

@@ -9,4 +9,9 @@ public class DoctorRepository(DbContext db) : IDoctorRepository
     {
         return db.Set<Person.Domain.Person>().AddAsync(doctor, cancellationToken).AsTask();
     }
+
+    public async Task<Doctor.Domain.Doctor> GetAsync(Guid doctorId, CancellationToken cancellationToken)
+    {
+        return await db.Set<Doctor.Domain.Doctor>().FindAsync(doctorId, cancellationToken);
+    }
 }
