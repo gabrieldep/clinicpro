@@ -10,6 +10,7 @@ internal static class AppointmentModule
         services.AddMediatR(config =>
         {
             config.RegisterServicesFromAssembly(typeof(CreateAppointment).Assembly);
+            config.RegisterServicesFromAssembly(typeof(UpdateAppointment).Assembly);
         });
     }
 }

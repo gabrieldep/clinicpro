@@ -9,4 +9,10 @@ public class PatientRepository(DbContext db) : IPatientRepository
     {
         return db.Set<Person.Domain.Person>().AddAsync(patient, cancellationToken).AsTask();
     }
+
+    public async Task<Patient.Domain.Patient> GetAsync(Guid patientId, CancellationToken cancellationToken)
+    {
+        return await db.Set<Patient.Domain.Patient>()
+            .FindAsync(patientId, cancellationToken);
+    }
 }
