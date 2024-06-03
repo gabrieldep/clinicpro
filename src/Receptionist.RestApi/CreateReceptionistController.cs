@@ -26,7 +26,8 @@ public class CreateReceptionistController(ISender sender) : ControllerBase
             User = request.User,
             Password = request.Password,
             Name = request.Name,
-            Birth = birthDate
+            Birth = birthDate,
+            CPF = request.CPF
         };
         var receptionistId = await sender.Send(command, cancellationToken);
         return Ok(receptionistId);
@@ -38,5 +39,6 @@ public record CreateReceptionistInfoRequest
     public string User { get; set; }
     public string Password { get; set; }
     public string Name { get; set; }
+    public string CPF { get; set; }
     public BirthDate Birth { get; set; }
 }

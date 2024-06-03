@@ -8,6 +8,7 @@ public class CreateReceptionist : IRequest<Guid>
     public string User { get; set; } = null!;
     public string Password { get; set; } = null!;
     public string Name { get; set; }
+    public string CPF { get; set; }
     public DateOnly Birth { get; set; }
 }
 
@@ -20,7 +21,8 @@ public class CreateReceptionistHandler(IReceptionistRepository receptionists) : 
             UserName = request.User,
             Password = request.Password,
             Name = request.Name,
-            Birth = request.Birth
+            Birth = request.Birth,
+            CPF = request.CPF
         };
 
         await receptionists.InsertAsync(receptionist, cancellationToken);

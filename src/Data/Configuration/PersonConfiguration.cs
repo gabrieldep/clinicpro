@@ -25,5 +25,8 @@ internal class PersonConfiguration : IEntityTypeConfiguration<Person.Domain.Pers
         
         builder.Property(x => x.Birth)
             .IsRequired();
+        
+        builder.Property(x => x.CPF)
+            .IsRequired();
     }
 }

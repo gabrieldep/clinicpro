@@ -16,6 +16,15 @@ public class AppointmentRepository(DbContext db) : IAppointmentRepository
             .FindAsync(appointmentId, cancellationToken);
     }
 
+    public async Task<bool> DeleteAsync(Guid appointmentId, CancellationToken cancellationToken)
+    {
+        var appointment = await GetAsync(appointmentId, cancellationToken);
+        if (appointment == null) return false;
+
+        db.Set<Appointment.Domain.Appointment>().Remove(appointment);
+        return true;
+    }
+
     public async Task<IQueryable<Appointment.Domain.Appointment>> GetAppointmentsFromNow(Guid doctorId, CancellationToken cancellationToken)
     {
         var appointments = db.Set<Appointment.Domain.Appointment>()

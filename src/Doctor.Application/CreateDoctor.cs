@@ -8,6 +8,7 @@ public class CreateDoctor : IRequest<Guid>
     public string User { get; set; } = null!;
     public string Password { get; set; } = null!;
     public string Name { get; set; }
+    public string CPF { get; set; }
     public DateOnly Birth { get; set; }
 }
 
@@ -20,7 +21,8 @@ public class CreateDoctorHandler(IDoctorRepository doctors) : IRequestHandler<Cr
             UserName = request.User,
             Password = request.Password,
             Name = request.Name,
-            Birth = request.Birth
+            Birth = request.Birth,
+            CPF = request.CPF
         };
 
         await doctors.InsertAsync(doctor, cancellationToken);

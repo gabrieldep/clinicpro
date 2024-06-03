@@ -11,6 +11,7 @@ internal static class AppointmentModule
         {
             config.RegisterServicesFromAssembly(typeof(CreateAppointment).Assembly);
             config.RegisterServicesFromAssembly(typeof(UpdateAppointment).Assembly);
+            config.RegisterServicesFromAssembly(typeof(DeleteAppointment).Assembly);
         });
     }
 }

@@ -26,7 +26,8 @@ public class CreatePatientController(ISender sender) : ControllerBase
             User = request.User,
             Password = request.Password,
             Name = request.Name,
-            Birth = birthDate
+            Birth = birthDate,
+            CPF = request.CPF
         };
         var patientId = await sender.Send(command, cancellationToken);
         return Ok(patientId);
@@ -38,5 +39,6 @@ public record CreatePatientInfoRequest
     public string User { get; set; }
     public string Password { get; set; }
     public string Name { get; set; }
+    public string CPF { get; set; }
     public BirthDate Birth { get; set; }
 }
