@@ -13,7 +13,7 @@ public class GetAppointmentTimesValidator : AbstractValidator<DoctorTimesAvaiabl
         
         RuleFor(x => x.DoctorId)
             .NotEmpty().NotNull().WithMessage("Doctor ID é necessário para completar a requisição.")
-            .MustAsync(BeAValidGuidAsync).WithMessage("Não foi possível encontrar carteira com esse GUID.");
+            .MustAsync(BeAValidGuidAsync).WithMessage("Não foi possível encontrar um médico com esse GUID.");
     }
     
     private async Task<bool> BeAValidGuidAsync(Guid guid, CancellationToken cancellationToken)

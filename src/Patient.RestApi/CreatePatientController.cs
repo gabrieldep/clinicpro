@@ -8,7 +8,7 @@ using Person.Domain;
 namespace Patient.RestApi;
 
 [ApiController]
-[Route("api/create-patient")]
+[Route("api/patient/create-patient")]
 public class CreatePatientController(ISender sender) : ControllerBase
 {
     [HttpPost]
