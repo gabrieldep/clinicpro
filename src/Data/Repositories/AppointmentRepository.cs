@@ -25,6 +25,15 @@ public class AppointmentRepository(DbContext db) : IAppointmentRepository
         return true;
     }
 
+    public async Task<bool> DeleteAsync(IEnumerable<Guid> appointmentsId, CancellationToken cancellationToken)
+    {
+        var appointments = db.Set<Appointment.Domain.Appointment>()
+            .Where(a => appointmentsId.Any(ai => ai == a.Id));
+        
+        db.Set<Appointment.Domain.Appointment>().RemoveRange(appointments);
+        return true;
+    }
+
     public async Task<IQueryable<Appointment.Domain.Appointment>> GetAppointmentsFromNow(Guid doctorId, CancellationToken cancellationToken)
     {
         var appointments = db.Set<Appointment.Domain.Appointment>()

@@ -10,7 +10,7 @@ namespace Patient.RestApi;
 [Route("api/patient/{patientId}/delete-patient")]
 public class DeletePatientController(ISender sender) : ControllerBase
 {
-    [HttpPost]
+    [HttpDelete]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]   
