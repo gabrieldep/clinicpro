@@ -30,7 +30,9 @@ public class GetPatientAppointmentsHandler(IAppointmentRepository appointments, 
                 {
                     MedicalSchedule = pa.MedicalSchedule,
                     DoctorId = pa.DoctorId,
-                    DoctorName = pa.Doctor.Name
+                    DoctorName = pa.Doctor.Name,
+                    PatientId = patient.Id,
+                    PatientName = patient.Name
                 }).ToList()
         };
         return appointmentsDto;

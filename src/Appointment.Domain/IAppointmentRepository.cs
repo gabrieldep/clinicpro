@@ -4,6 +4,7 @@ public interface IAppointmentRepository
 {
     Task InsertAsync(Appointment appointment, CancellationToken cancellationToken);
     Task<Appointment> GetAsync(Guid appointmentId, CancellationToken cancellationToken);
+    Task<Appointment> GetWithDocAndPatientAsync(Guid appointmentId, CancellationToken cancellationToken);
     Task<bool> DeleteAsync(Guid appointmentId, CancellationToken cancellationToken);
     Task<bool> DeleteAsync(IEnumerable<Guid> appointmentsId, CancellationToken cancellationToken);
     Task<IQueryable<Appointment>> GetAppointmentsFromNow(Guid doctorId, CancellationToken cancellationToken);

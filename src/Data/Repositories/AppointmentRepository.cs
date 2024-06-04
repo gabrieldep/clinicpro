@@ -16,9 +16,18 @@ public class AppointmentRepository(DbContext db) : IAppointmentRepository
             .FindAsync(appointmentId, cancellationToken);
     }
 
+    public async Task<Appointment.Domain.Appointment> GetWithDocAndPatientAsync(Guid appointmentId,
+        CancellationToken cancellationToken)
+    {
+        return await db.Set<Appointment.Domain.Appointment>()
+            .Include(a => a.Doctor)
+            .Include(a => a.Patient)
+            .FirstOrDefaultAsync(a => a.Id == appointmentId, cancellationToken);
+    }
+
     public async Task<bool> DeleteAsync(Guid appointmentId, CancellationToken cancellationToken)
     {
-        var appointment = await GetAsync(appointmentId, cancellationToken);
+        var appointment = await GetWithDocAndPatientAsync(appointmentId, cancellationToken);
         if (appointment == null) return false;
 
         db.Set<Appointment.Domain.Appointment>().Remove(appointment);
@@ -29,21 +38,23 @@ public class AppointmentRepository(DbContext db) : IAppointmentRepository
     {
         var appointments = db.Set<Appointment.Domain.Appointment>()
             .Where(a => appointmentsId.Any(ai => ai == a.Id));
-        
+
         db.Set<Appointment.Domain.Appointment>().RemoveRange(appointments);
         return true;
     }
 
-    public async Task<IQueryable<Appointment.Domain.Appointment>> GetAppointmentsFromNow(Guid doctorId, CancellationToken cancellationToken)
+    public async Task<IQueryable<Appointment.Domain.Appointment>> GetAppointmentsFromNow(Guid doctorId,
+        CancellationToken cancellationToken)
     {
         var appointments = db.Set<Appointment.Domain.Appointment>()
-            .Where(s => 
+            .Where(s =>
                 s.DoctorId == doctorId
                 && s.MedicalSchedule >= DateTime.Now);
         return await Task.FromResult(appointments);
     }
 
-    public async Task<IQueryable<Appointment.Domain.Appointment>> GetPatientAppointments(Guid patientId, CancellationToken cancellationToken)
+    public async Task<IQueryable<Appointment.Domain.Appointment>> GetPatientAppointments(Guid patientId,
+        CancellationToken cancellationToken)
     {
         var appointments = db.Set<Appointment.Domain.Appointment>()
             .Where(s =>
