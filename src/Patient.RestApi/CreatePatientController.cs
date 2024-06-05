@@ -19,6 +19,9 @@ public class CreatePatientController(ISender sender) : ControllerBase
     public async Task<IActionResult> PostAsync([FromBody] CreatePatientInfoRequest request,
         CancellationToken cancellationToken)
     {
+        if (request.Birth == null || request.Birth.IsNullOrEmpty())
+            return BadRequest("O campo aniversário deve ser preenchido");
+        
         var birthDate = new DateOnly(request.Birth.Year, request.Birth.Month, request.Birth.Day);
 
         var command = new CreatePatient()

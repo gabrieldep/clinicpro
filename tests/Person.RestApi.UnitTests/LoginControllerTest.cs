@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using FluentAssertions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +20,7 @@ public class LoginControllerTest
     }
     
     [Fact]
-    public async Task PostAsync_ShouldReturnLoginSuccessfully()
+    public async Task PostAsync_WhenValidRequest_ShouldReturnLoginSuccessfully()
     {
         // arrange
         _personRepository.Setup(s =>
@@ -40,7 +39,7 @@ public class LoginControllerTest
     }
     
     [Fact]
-    public async Task PostAsync_ShouldReturnLoginWasNotSuccessfully()
+    public async Task PostAsync_WhenInvalidRequest_ShouldReturnLoginWasNotSuccessfully()
     {
         // arrange
         _personRepository.Setup(s =>
