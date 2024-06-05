@@ -11,6 +11,9 @@ internal static class PatientModule
         services.AddMediatR(config =>
         {
             config.RegisterServicesFromAssembly(typeof(CreatePatient).Assembly);
+            config.RegisterServicesFromAssembly(typeof(DeletePatient).Assembly);
+            config.RegisterServicesFromAssembly(typeof(UpdatePatient).Assembly);
+            config.RegisterServicesFromAssembly(typeof(GetPatientAppointments).Assembly);
         });
     }
 }
