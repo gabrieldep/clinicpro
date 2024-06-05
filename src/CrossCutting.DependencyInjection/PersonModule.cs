@@ -9,7 +9,7 @@ internal static class PersonModule
     {
         services.AddMediatR(config =>
         {
-            config.RegisterServicesFromAssembly(typeof(PersonInfo).Assembly);
+            config.RegisterServicesFromAssembly(typeof(PersonLogin).Assembly);
         });
     }
 }

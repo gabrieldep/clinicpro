@@ -17,9 +17,11 @@ public class LoginController(ISender sender) : ControllerBase
     [SaveChanges]
     public async Task<IActionResult> PostAsync([FromBody] PersonInfoRequest request, CancellationToken cancellationToken)
     {
-        var command = new PersonInfo { User = request.User, Password = request.Password};
-        var login = await sender.Send(command, cancellationToken);
-        return Ok(login);
+        var command = new PersonLogin { User = request.User, Password = request.Password};
+        var loginSuccess = await sender.Send(command, cancellationToken);
+        if (!loginSuccess)
+            return NotFound(loginSuccess);
+        return Ok(loginSuccess);
     }
 }
 
